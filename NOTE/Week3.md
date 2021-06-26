@@ -1,8 +1,11 @@
 # 109b 系統程式上課筆記
 
 ## 第三周
-[系統程式 第三週  編譯器](https://www.facebook.com/ccckmit/videos/10158818166811893/)  
-[程式講解筆記compiler-lexer-lexer.c](https://gitlab.com/AIONLin/sp/-/blob/master/03-compiler/02-lexer/lexer.c) 
+系統程式 第三週  編譯器(https://www.facebook.com/ccckmit/videos/10158818166811893/)  
+<br>
+[精華濃縮 : 程式講解筆記compiler-lexer-lexer.c](https://gitlab.com/AIONLin/sp/-/blob/master/03-compiler/02-lexer/lexer.c) 
+
+<br>
 
 >fopen：FILE *fopen(const char *filename, const char *mode)
 
