@@ -14,7 +14,8 @@ w：創建一個空的書麵文件。如果已經存在具有相同名稱的文�
 a：附加到文件中。寫入操作的數據追加在文件末尾的。該文件被創建，如果它不存在。  
 r+：	打開更新文件讀取和寫入。該文件必須存在。  
 w+：	創建一個空文件，讀取和寫入。  
-a+：	打開一個文件的​​讀取和追加。 
+a+：	打開一個文件的​​讀取和追加。  
+
 
 
  　
@@ -22,4 +23,5 @@ a+：	打開一個文件的​​讀取和追加。
 
 
 參考資料：  
-https://www.cplusplus.com/reference/cstdio/fopen/  http://tw.gitbook.net/c_standard_library/c_function_fopen.html
+https://www.cplusplus.com/reference/cstdio/fopen/  
+http://tw.gitbook.net/c_standard_library/c_function_fopen.html
