@@ -16,12 +16,23 @@ r+：	打開更新文件讀取和寫入。該文件必須存在。
 w+：	創建一個空文件，讀取和寫入。  
 a+：	打開一個文件的​​讀取和追加。  
 
+sizeof() : 
+>C的運算子，產生其運算元的大小（相對於類型的大小）
 
+[程式講解筆記compiler-lexer-lexer.c]() 　
+>從程式到字串表
+<img src="./picture/字串表範例.jpg">  
 
- 　
+>指標還原成記憶體位置比較好
+<img src="./picture/指標與記憶體.jpg">
+
+>Segmentation fault 沒有設初值導致存取到不該存取位置
+
 
 
 
 參考資料：  
 https://www.cplusplus.com/reference/cstdio/fopen/  
 http://tw.gitbook.net/c_standard_library/c_function_fopen.html
+
+https://docs.microsoft.com/zh-tw/cpp/cpp/sizeof-operator?view=msvc-160
