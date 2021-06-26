@@ -1,8 +1,8 @@
 # 109b 系統程式上課筆記
 
 ## 第三周
-[系統程式 第三週  編譯器](https://www.facebook.com/ccckmit/videos/10158818166811893/)
-
+[系統程式 第三週  編譯器](https://www.facebook.com/ccckmit/videos/10158818166811893/)  
+[程式講解筆記compiler-lexer-lexer.c](https://gitlab.com/AIONLin/sp/-/blob/master/03-compiler/02-lexer/lexer.c) 
 
 >fopen：FILE *fopen(const char *filename, const char *mode)
 
@@ -16,19 +16,33 @@ r+：	打開更新文件讀取和寫入。該文件必須存在。
 w+：	創建一個空文件，讀取和寫入。  
 a+：	打開一個文件的​​讀取和追加。  
 
-sizeof() : 
->C的運算子，產生其運算元的大小（相對於類型的大小）
+<br>
 
-[程式講解筆記compiler-lexer-lexer.c]() 　
+>sizeof() : C的運算子，產生其運算元的大小（相對於類型的大小）
+
+<br>
+
+
+
+　
+
+<br>
+
 >從程式到字串表
 <img src="./picture/字串表範例.jpg">  
+<img src="./picture/字串表與記憶體.jpg">
+
+<br>
 
 >指標還原成記憶體位置比較好
 <img src="./picture/指標與記憶體.jpg">
 
->Segmentation fault 沒有設初值導致存取到不該存取位置
 
+<br>
 
+>Segmentation fault : 沒有設初值導致存取到不該存取位置
+
+<br><br>
 
 
 參考資料：  
