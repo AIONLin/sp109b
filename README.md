@@ -10,3 +10,12 @@
 課程內容 | https://gitlab.com/ccc109/sp/
 教材網址 | [陳鍾誠的系統程式課程](http://programmermedia.org/root/%E9%99%B3%E9%8D%BE%E8%AA%A0/%E8%AA%B2%E7%A8%8B/%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F/README.md)
 
+
+<br><br>
+
+## 系統程式筆記
+
+#
+[第一周]()  
+[第二周]()  
+[第三周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week3.md)  
