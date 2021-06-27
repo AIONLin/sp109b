@@ -20,5 +20,12 @@
 [第二周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week2.md)  
 [第三周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week3.md)  
 [第四周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week4.md)  
-[第五周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week5.md)  
-[第六周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week6.md)  
+[第五周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week5.md)   
+[第十二周](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week12.md) 
+
+
+
+
+
+
+
