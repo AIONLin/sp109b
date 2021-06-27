@@ -126,5 +126,54 @@ format:
         .asciz  "%20ld\n"
 ```
 
-Mixing C and Assembly Language -maxofthree.s(將c跟組合語言融合)
+Mixing C and Assembly Language -maxofthree.s(將c跟組合語言融合) :
+>This 64-bit program is a very simple function that takes in three 64-bit integer parameters and returns the maximum value. It shows how to extract integer parameters: They will have been pushed on the stack so that on entry to the function, they will be in rdi, rsi, and rdx, respectively. The return value is an integer so it gets returned in rax.
+>這個 64 位程序是一個非常簡單的函數，它接受三個 64 位整數參數並返回最大值。它展示瞭如何提取整數參數：它們將被壓入堆棧，以便在進入函數時，它們將分別位於 rdi、rsi 和 rdx 中。返回值是一個整數，因此它以 rax 形式返回。
+```
+# -----------------------------------------------------------------------------
+# A 64-bit function that returns the maximum value of its three 64-bit integer
+# arguments.  The function has signature:
+#
+#   int64_t maxofthree(int64_t x, int64_t y, int64_t z)
+#
+# Note that the parameters have already been passed in rdi, rsi, and rdx.  We
+# just have to return the value in rax.
+# -----------------------------------------------------------------------------
+
+        .globl  maxofthree
+        
+        .text
+maxofthree:
+        mov     %rdi, %rax              # result (rax) initially holds x
+        cmp     %rsi, %rax              # is x less than y?
+        cmovl   %rsi, %rax              # if so, set result to y
+        cmp     %rdx, %rax              # is max(x,y) less than z?
+        cmovl   %rdx, %rax              # if so, set result to z
+        ret                             # the max will be in eax
+```
+>c語言呼叫組合語言(maxofthree)的部分 (C program that calls the assembly language function ) :
+>maxofthree是組合語言寫出來的
+```
+ /*
+ * callmaxofthree.c
+ *
+ * A small program that illustrates how to call the maxofthree function we wrote in
+ * assembly language.
+ */
+
+#include <stdio.h>
+#include <inttypes.h>
+
+int64_t maxofthree(int64_t, int64_t, int64_t);  #先定義一個函數原型才能讓他編譯 之後就會連到maxofthree
+
+int main() {
+    printf("%ld\n", maxofthree(1, -4, -7));
+    printf("%ld\n", maxofthree(2, -6, 1));
+    printf("%ld\n", maxofthree(2, 3, 1));
+    printf("%ld\n", maxofthree(-2, 4, 3));
+    printf("%ld\n", maxofthree(2, -6, 5));
+    printf("%ld\n", maxofthree(2, 4, 6));
+    return 0;
+}
+```
 
