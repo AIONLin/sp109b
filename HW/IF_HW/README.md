@@ -34,6 +34,7 @@ WHILE = while (E) STMT
 ASSIGN = id '=' E;
 E = F (op E)*
 F = (E) | Number | Id
+If (EXP) STMT (else STMT)?
 ```
 
 ## 執行結果
