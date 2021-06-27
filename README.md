@@ -32,7 +32,7 @@
 [第四週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week4.md) | ubuntu multipass/compiler/Linux/組合語言 + 優化算法/線性與整數規劃/搜尋法 
 [第五週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week5.md) | 虛擬機
 [第六週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week6.md) | 理論基礎＋組合語言
-[第七週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week7.md) | 無
+[第七週]() | 放假
 [第八週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week8.md) | 函式庫 + Thread
 [第九週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week9.md) | posix/thread
 [第十週](https://github.com/AIONLin/sp109b/blob/main/NOTE/Week10.md) | Thread + OS
