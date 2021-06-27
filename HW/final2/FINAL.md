@@ -1,5 +1,9 @@
-# GNU Assembler Examples
->GAS, the GNU Assembler, is the default assembler for the GNU Operating System. It works on many different architectures and supports several assembly language syntaxes. These examples are only for operating systems using the Linux kernel and an x86-64 processor, however.
+# 期末作業：理解[GNU Assembler Examples](https://cs.lmu.edu/~ray/notes/gasexamples/)
+## 參考GNU Assembler範例，能理解部分程式碼與執行並進行註解
+
+>GAS, the GNU Assembler, is the default assembler for the GNU Operating System.
+It works on many different architectures and supports several assembly language syntaxes. 
+These examples are only for operating systems using the Linux kernel and an x86-64 processor, however.
 
 ## Getting Started-hello.s
 >Hello World program that uses Linux System calls, for a 64-bit installation:
