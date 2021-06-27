@@ -1,16 +1,14 @@
 # 期末作業：理解[GNU Assembler Examples](https://cs.lmu.edu/~ray/notes/gasexamples/)
-## 參考GNU Assembler範例，能理解部分程式碼與執行並進行註解
+## 參考GNU Assembler範例與陳鍾誠老師的系統程式課程教材，能理解部分程式碼與執行並進行註解（直接註解在此README.MD裡）
 
->首先熟記 :  
->Stack：一種先進後出 (First In Last Out, FILO) 的資料結構。  
-認識兩個 register
-esp：永遠指向 stack top （也就是低位處） -
-ebp：指向 begining of current frame 。  
-幾個組合語言指令
-push：把資料存進 stack ，rsp 會向低位移動一單位。  
-pop：把資料存 stack 內取出 ，rsp 會向高位移動一單位。  
-call： 把當前位址 push 進 stack ，然後跳進某個 procedure 。  
-ret：　把 stack 中的資料 pop 出，並跳到該位址。  
+>首先要知道 :  
+>1.Stack：  
+一種先進後出 (First In Last Out, FILO) 的資料結構。  
+>2.幾個組合語言指令  :  
+push：把資料存進 stack ，rsp 會向低位移動一單位。    
+pop：把資料存 stack 內取出 ，rsp 會向高位移動一單位。    
+call： 把當前位址 push 進 stack ，然後跳進某個 procedure 。    
+ret：　把 stack 中的資料 pop 出，並跳到該位址。    
 [參考資料來源](https://ithelp.ithome.com.tw/articles/10227112)
 <br>
 
@@ -20,21 +18,21 @@ push  rbp | push(rbp);
 mov   rbp,rsp  | rbp = rsp;
 sub   rsp,0x20 | rsp -= 0x20;
 call  401710      |f_401710();
-lea   rcx,[rip+0x2a8c]  | rcx = rip + 0x2a8c;
 call  402c40  | f_402c40();
-mov   eax,0x0  | eax = 0;
-add   rsp,0x20  | rsp += 0x20;
 pop   rbp  | pop(&rbp);
 ret   |  return;
+
+相似但不完全一樣，可參考用
+
 [表格資料來源](https://ithelp.ithome.com.tw/articles/10227112)
 
+<br>
 
+>GAS, the GNU Assembler, is the default assembler for the GNU Operating System.  
+It works on many different architectures and supports several assembly language syntaxes.   
+這些範例只能在作業系統 Linux 、 x86-64 processor 使用
 
->GAS, the GNU Assembler, is the default assembler for the GNU Operating System.
-It works on many different architectures and supports several assembly language syntaxes. 
-These examples are only for operating systems using the Linux kernel and an x86-64 processor, however.
-
-## Getting Started-hello.s
+## 開始 - Getting Started-hello.s
 >Hello World program that uses Linux System calls, for a 64-bit installation:
 
 ```
@@ -106,15 +104,16 @@ gcc -no-pie hola.s -o hola
 ```
 >-no-pie 代表 no position independent executable  --> 不要編成與位址無關的目的檔  以減少損失
 
-
-        call    puts      # puts(message) 呼叫puts函數(c函式庫裡的)
-
+    call    puts      # puts(message) 呼叫puts函數(c函式庫裡的)
 
 
 
 # Calling Conventions for 64-bit C Code-fib.s (呼叫約定、呼叫慣例)
 
 >64-bit calling conventions 在 [AMD64 ABI Reference](http://www.x86-64.org/documentation/abi.pdf) 裡有更詳細的解釋. [維基](https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_Calling_Conventions)也有關於他的資訊. 更重要的是，給 64-bit Linux用,不是 Windows):
+
+>以下翻譯參照參考資料所使用名稱和google翻譯，但有些名詞仍然有點混淆
+
 
 從左到右，傳遞盡可能適合暫存器的範圍的參數。暫存器分配的順序是：   
  - 整數 和 pointers , rdi, rsi, rdx, rcx, r8, r9.
@@ -195,12 +194,16 @@ format:
 > [Calling convention參考資料](http://redbug0314.blogspot.com/2007/06/calling-convention.html)  
   [Calling convention參考資料2](https://tclin914.github.io/77838749/)
 
-
+執行 fib.s :
+```
+gcc -no-pie fib.s -o fib
+./fib
+```
 <br>
 
 # Mixing C and Assembly Language -maxofthree.s(將c跟組合語言融合) :
->This 64-bit program is a very simple function that takes in three 64-bit integer parameters and returns the maximum value. It shows how to extract integer parameters: They will have been pushed on the stack so that on entry to the function, they will be in rdi, rsi, and rdx, respectively. The return value is an integer so it gets returned in rax.
->這個 64 位程序是一個非常簡單的函數，它接受三個 64 位整數參數並返回最大值。它展示瞭如何提取整數參數：它們將被壓入堆棧，以便在進入函數時，它們將分別位於 rdi、rsi 和 rdx 中。返回值是一個整數，因此它以 rax 形式返回。
+>  They will have been pushed on the stack so that on entry to the function, they will be in rdi, rsi, and rdx, respectively. The return value is an integer so it gets returned in rax.
+>這個 64 位程序是一個非常簡單的函數，它接受三個 64 位整數參數並返回最大值。它展示了如何取出整數參數：它們將推入堆疊，以便在進入函數，它們將分別位於 rdi、rsi 和 rdx 中。傳回值是一個整數，因此它以 rax 形式返回。
 ```
 # -----------------------------------------------------------------------------
 # A 64-bit function that returns the maximum value of its three 64-bit integer
@@ -248,6 +251,13 @@ int main() {
     return 0;
 }
 ```
+執行callmaxofthree.c maxofthree.s :
+```
+gcc -std=c99 callmaxofthree.c maxofthree.s 
+./a.out
+```
+
+<br><br> 
 # Command Line Arguments-echo.s   (了解如何存取argc argv) :
 >在 C 語言裡，main 只是一個普通的函數，擁有幾個自己的參數：  
 int main(int argc, char** argv)　　
@@ -296,11 +306,12 @@ gcc echo.s
 >'$$' 純粹 印出$$
 
 
+<br><br> 
+
 # Treat them as integers-power.s (x的y次方) 將傳進來的參數 char * (字串)轉成整數
-> 
 >1.就 C Library而言，命令列參數始終是字符串(string)  
 2.如果要將它們視為整數，就需要用到 atoi 函式  
-3.這個範例另外一個特點就是將值限制在32-bit
+3.這個範例另外一個特點就是將值限制在32-bit (?)
 
 ```
 # -----------------------------------------------------------------------------
@@ -374,6 +385,13 @@ atoi用法 :
 >int atoi(const char *str)  
 >將字串裡的數字字元(參數str)轉化為整數（int型）。並傳回  
 >注意：轉化時跳過前面的空格字元，直到遇上數字或正負符號才開始做轉換，而再次遇到非數字或字串結束時('/0')才結束轉換，並將結果傳回。
+
+執行power.s
+```
+gcc -no-pie power.s -o power
+./power 1 3  (印出1)
+./power 2 4  (印出16)
+```
 
 參考資料 : 
 
