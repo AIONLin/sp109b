@@ -1,9 +1,9 @@
 # 109b 系統程式上課筆記
 
 ## 第四周
-系統程式 第四週  ubuntu multipass + compiler + 組合語言(https://www.facebook.com/ccckmit/videos/10158835739151893/)  
+系統程式 第四週  ubuntu multipass + compiler + 組合語言    [FB連接](https://www.facebook.com/ccckmit/videos/10158835739151893/)  
 <br>
-[精華濃縮 : 程式講解筆記compiler-lexer-lexer.c](https://gitlab.com/AIONLin/sp/-/blob/master/03-compiler/02-lexer/lexer.c) 
+本周精華註解在下面
 
 <br>
 ubuntu multipass若無法順利執行,只要有linux環境就好<br>到linux環境裡開終端機之後
