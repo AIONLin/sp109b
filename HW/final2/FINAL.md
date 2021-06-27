@@ -219,12 +219,12 @@ gcc -no-pie fib.s -o fib
         
         .text
 maxofthree:
-        mov     %rdi, %rax              # result (rax) initially holds x
-        cmp     %rsi, %rax              # is x less than y?
-        cmovl   %rsi, %rax              # if so, set result to y
-        cmp     %rdx, %rax              # is max(x,y) less than z?
-        cmovl   %rdx, %rax              # if so, set result to z
-        ret                             # the max will be in eax
+        mov     %rdi, %rax              # result (rax) initially holds x (初始先存x(rdi))
+        cmp     %rsi, %rax              # is x less than y? (x和y(rsi)進行比較)
+        cmovl   %rsi, %rax              # if so, set result to y (如果y較大,將結果改變成y(rsi))
+        cmp     %rdx, %rax              # is max(x,y) less than z? (和z(rdx)進行比較)
+        cmovl   %rdx, %rax              # if so, set result to z (如果z較大,將結果改成z)
+        ret                             # the max will be in eax (將最後結果回傳)
 ```
 >c語言呼叫組合語言(maxofthree)的部分 (C program that calls the assembly language function ) :
 >maxofthree是組合語言寫出來的
