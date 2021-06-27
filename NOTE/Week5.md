@@ -69,7 +69,7 @@ cd .. (到上一層用他的jvm.c)
 ./jvm tests/Primes.class (也可以跑)
 ```
 
-<br><br>
+<br>
 
 
 [QEMU 虛擬機 :](https://zh.wikipedia.org/zh-tw/QEMU)
@@ -77,9 +77,14 @@ cd .. (到上一層用他的jvm.c)
 >他還做了FFmpeg (把影片拆成jpg或把jpg弄成影片)
 >[Fabrice Bellard個人網站](https://bellard.org/)
 
+<br>
 
 C4 (自帶虛擬機 所以可以在任何平台執行) : 
+
 >到c4資料夾打開終端機
+
+
+
 ```
 gcc -m32 c4.c -o c4   (m32 因為電腦64位元) #會有warning但可以執行  
 ./c4 test/hello.c    (測試程式:用tset資料夾下的程式)  
@@ -118,52 +123,7 @@ gcc -m32 c4.c -o c4   (m32 因為電腦64位元) #會有warning但可以執行
 
 
 
-<br><br>
-
-
-```
-helloMacro.s 改用巨集方式寫 : 
-```
-        .include "../myMacro.s"
-
-```
-註解版myMacro.s : 
-```
-
-
-使用巨集處理：　
->將要做的事情先寫好，之後只要直接引用，這樣helloMacro.s就可以用少少的行數寫出
-
-註解版 09linux-02asm-02hola的hola.s : 
-```
-
-```
-
-
-執行09linux-02asm-02hola的hola.s :   
-
-gcc -no-pie hola.s -o hola     
-./hola
-
-
-
->-no-pie 代表 no position independent executable  --> 不要編成與位址無關的目的檔  
-
-
-        call    puts      # puts(message) 呼叫puts函數(c函式庫裡的)
-
-[Working with the C Library原始來源](https://cs.lmu.edu/~ray/notes/gasexamples/)  :
->裡面有更多範例，例如power(x,y)引用atoi
-
-<br><br>
-gcc vs. llvm (llvm為蘋果資助研究用在自家產品)
-
-<br><br>
-
-[查看更詳細的老師巨集說明](https://www.slideshare.net/ccckmit/6-128033146)
-　
-
-<br>
+<br><br><br>
 
 
 
